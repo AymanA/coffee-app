@@ -15,6 +15,8 @@ export default class MachineService {
         query.productType = productType;
         query.waterLine = waterLine;
 
-        return await this.machineRepository.getMachines(query)
+        let machines = await this.machineRepository.getMachines(query)
+
+        return machines.map(machine => machine.sku)
     }
 }
