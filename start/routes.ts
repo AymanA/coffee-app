@@ -23,3 +23,10 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', async () => {
   return { hello: 'world' }
 })
+
+
+
+Route.group(() => {
+  Route.get('machines', 'MachinesController.getMachines')
+  Route.get('pods', 'PodsController.getPods')
+}).prefix('/api/v1')
